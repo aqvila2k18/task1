@@ -12,6 +12,7 @@ hostname=$(hostname)
 uptime=$(uptime  -p | awk -F"up " '{print $2}')
 procrun=$(ps axuh | wc -l)
 loguser=$( w -s -h | wc -l)
+netif=$(cat /proc/net/dev | awk -F : '{if (NR>2) print $1}')
 
 #Put sistem info to task4_1.out
 echo '---Hardware---'>task4_1.out
@@ -26,3 +27,11 @@ echo 'Hostname: '${hostname:-'Uknown'}>>task4_1.out
 echo 'Uptime: '$uptime>>task4_1.out
 echo 'Processes running: '$procrun>>task4_1.out
 echo 'Users logged in: '$loguser>>task4_1.out
+
+#Put network info to task4_1.out
+echo '---Network---'>>task4_1.out
+for i in $netif
+do
+netip=$(ip address show $i | grep 'inet '| awk '{print $2}')
+echo $i': '${netip:-'-'}>>task4_1.out
+done
