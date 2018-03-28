@@ -1,10 +1,11 @@
 ---Hardware---
-CPU: Uknown
-RAM: 992M
-Motherboard: VirtualBox/Oracle Corporation
-System Serial Number: 0
+CPU: Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+RAM: 7,7G
+Motherboard: ASUSTeK COMPUTER INC. B150M-A
+System Serial Number: System Serial Number
 ---System---
-OS Distribution: Ubuntu 16.04.4 LTS
-Kernel version: 4.4.0-116-generic
-Hostname: ubuntu
-Uptime: 0.11658days
+OS Distribution: Linux Mint 18.3 Sylvia
+Kernel version: 4.13.0-37-generic
+Hostname: aqvila-lx
+Uptime: 1 day, 16 minutes
+Processes running: 250
