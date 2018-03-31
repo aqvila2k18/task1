@@ -18,7 +18,7 @@ netif=$(cat /proc/net/dev | awk -F : '{if (NR>2) print $1}')
 #Put sistem info to task4_1.out
 echo '---Hardware---'>task4_1.out
 echo 'CPU: '${cpuinf:-'Uknown'}>>task4_1.out
-echo 'RAM: '${meminfo:-'Uknown'}>>task4_1.out
+echo 'RAM: '$meminfo'B'>>task4_1.out
 echo 'Motherboard: '${bbminfo:-'Uknown'}' '${bbpminfo:-'Uknown'}>>task4_1.out
 echo 'System Serial Number: '${ssninfo:-'Uknown'}>>task4_1.out
 echo '---System---'>>task4_1.out
