@@ -15,25 +15,28 @@ procrun=$(ps axuh | wc -l)
 loguser=$( w -s -h | wc -l)
 netif=$(cat /proc/net/dev | awk -F : '{if (NR>2) print $1}')
 
+#Path to task4_1.out
+s_dir=$(dirname $0)'/task4_1.out'
+
 #Put sistem info to task4_1.out
-echo '---Hardware---'>task4_1.out
-echo 'CPU: '${cpuinf:-'Uknown'}>>task4_1.out
-echo 'RAM: '$meminfo'B'>>task4_1.out
-echo 'Motherboard: '${bbminfo:-'Uknown'}' '${bbpminfo:-'Uknown'}>>task4_1.out
-echo 'System Serial Number: '${ssninfo:-'Uknown'}>>task4_1.out
-echo '---System---'>>task4_1.out
-echo 'OS Distribution: '${osd:-'Uknown'}>>task4_1.out
-echo 'Kernel version: '${krnlv:-'Uknown'}>>task4_1.out
-echo 'Installation date: '${instdate:-'Uknown'}>>task4_1.out
-echo 'Hostname: '${hostname:-'Uknown'}>>task4_1.out
-echo 'Uptime: '$uptime>>task4_1.out
-echo 'Processes running: '$procrun>>task4_1.out
-echo 'Users logged in: '$loguser>>task4_1.out
+echo '---Hardware---'>$s_dir
+echo 'CPU: '${cpuinf:-'Uknown'}>>$s_dir
+echo 'RAM: '$meminfo'B'>>$s_dir
+echo 'Motherboard: '${bbminfo:-'Uknown'}' '${bbpminfo:-'Uknown'}>>$s_dir
+echo 'System Serial Number: '${ssninfo:-'Uknown'}>>$s_dir
+echo '---System---'>>$s_dir
+echo 'OS Distribution: '${osd:-'Uknown'}>>$s_dir
+echo 'Kernel version: '${krnlv:-'Uknown'}>>$s_dir
+echo 'Installation date: '${instdate:-'Uknown'}>>$s_dir
+echo 'Hostname: '${hostname:-'Uknown'}>>$s_dir
+echo 'Uptime: '$uptime>>$s_dir
+echo 'Processes running: '$procrun>>$s_dir
+echo 'Users logged in: '$loguser>>$s_dir
 
 #Put network info to task4_1.out
-echo '---Network---'>>task4_1.out
+echo '---Network---'>>$s_dir
 for i in $netif
 do
 netip=$(ip address show $i | grep 'inet '| awk '{print $2}')
-echo $i': '${netip:-'-'}>>task4_1.out
+echo $i': '${netip:-'-'}>>$s_dir
 done
